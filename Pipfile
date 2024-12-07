@@ -28,6 +28,8 @@ six = "*"
 werkzeug = "*"
 wtforms = "*"
 zipp = "*"
+boto3 = "*"
+botocore = "*"
 
 [dev-packages]
 
