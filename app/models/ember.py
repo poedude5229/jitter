@@ -8,9 +8,12 @@ class Ember(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, nullable=False)
-    post_id = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('flickers.id')), nullable=False)
     comment_text = db.Column(db.String(255))
+
+    flickers = db.relationship('Flicker', back_populates='embers')
+    user = db.relationship('User', back_populates='embers')
 
     def to_dict(self):
         return {
