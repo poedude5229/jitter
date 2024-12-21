@@ -17,6 +17,8 @@ class User(db.Model, UserMixin):
     profile_banner = db.Column(db.String(255))
 
 
+    flickers = db.relationship('Flicker', back_populates='user', cascade='all, delete-orphan')
+
     @property
     def password(self):
         return self.hashed_password
