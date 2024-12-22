@@ -9,8 +9,11 @@ class Spark(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    liked_post_id = db.Column(db.Integer, nullable=False)
-    user_id = db.Column(db.Integer, nullable=False)
+    liked_post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('flickers.id')), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+
+    user = db.relationship('User', back_populates='sparks')
+    flickers = db.relationship('Flicker', back_populates='sparks')
 
     def to_dict(self):
         return {

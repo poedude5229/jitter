@@ -15,6 +15,8 @@ class Flicker(db.Model):
 
     user = db.relationship('User', back_populates='flickers')
     embers = db.relationship('Ember', back_populates='flickers', cascade='all, delete-orphan')
+    sparks = db.relationship('Spark', back_populates='flickers', cascade='all, delete-orphan')
+
 
     def to_dict(self):
         return {
