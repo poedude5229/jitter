@@ -19,6 +19,8 @@ class User(db.Model, UserMixin):
 
     flickers = db.relationship('Flicker', back_populates='user', cascade='all, delete-orphan')
     embers = db.relationship('Ember', back_populates='user', cascade='all, delete-orphan')
+    emberlikes = db.relationship('EmberLike', back_populates='user', cascade='all, delete-orphan')
+
 
     @property
     def password(self):

@@ -14,6 +14,7 @@ class Ember(db.Model):
 
     flickers = db.relationship('Flicker', back_populates='embers')
     user = db.relationship('User', back_populates='embers')
+    emberlikes = db.relationship('EmberLike', back_populates='ember', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
