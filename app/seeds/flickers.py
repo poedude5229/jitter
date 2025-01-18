@@ -6,6 +6,10 @@ def seed_flickers():
         user_id=1, source="This is the very first ever post on Firefly", type="Text"
     )
 
+    f2 = Flicker(
+        user_id=2, source="John Pork here. Hello from London! This website is so much better than Twitter because I can actually open it at work without getting fired and no Elon Musk!", type="Text"
+    )
+
     db.session.add(f1)
     db.session.commit()
 
