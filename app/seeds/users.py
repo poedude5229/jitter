@@ -30,6 +30,12 @@ def seed_users():
 
     db.session.add(bigjoe)
     db.session.add(johnpork)
+    db.session.add(bk4prez)
+    db.session.add(jackalope)
+    db.session.add(tofuWrestler)
+    db.session.add(spaghettiWizard)
+    db.session.add(quantumSloth)
+    db.session.add(pebbleHunter)
     db.session.commit()
 
 def undo_users():
